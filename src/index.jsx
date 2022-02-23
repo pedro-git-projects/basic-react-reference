@@ -12,14 +12,20 @@ import "./index.css";
 
 class App extends Component {
 	render() {
-		return ( 
-			/* we use className to create classes in JSX for class is a reserved JS word*/
-			<div className="app">			
-				{/*Passing properties to a component*/}
-				<AppHeader title="My App"/>
-				<AppContent />
-				<AppFooter />
-			</div>
+		// creating a JS object to store props
+		const myProps = {
+			title: "My App",
+			subject: "My subject",
+			favorite_color: "green",
+		}
+		return (			
+		/* we use className to create classes in JSX for class is a reserved JS word*/
+		<div className="app">			
+			{/*Passing properties trough spread operator*/}
+			<AppHeader {...myProps}/>
+			<AppContent />
+			<AppFooter />
+		</div>
 		)
 	}
 }
