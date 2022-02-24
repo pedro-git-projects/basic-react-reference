@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom"
-import AppFooter from "./AppFooter.jsx";
+// import AppFooter from "./AppFooter.jsx";
 import AppContent from "./AppContent";
 import AppHeader from "./AppHeader";
+import AppFooterFunctional from "./AppFooterFunctional";
 
 // we  install bootstrap with NPM and import at the entry point of our application
 // after that we're able to use it in other components
@@ -35,7 +36,8 @@ class App extends Component {
 			{/*Lifting state trough this.state.posts and handlePostChange*/}
 			<AppHeader {...myProps} posts={this.state.posts} handlePostChange={this.handlePostChange}/>
 			<AppContent handlePostChange={this.handlePostChange}/>
-			<AppFooter />
+			<AppFooterFunctional myProperty={"Hello, world"}/>
+			{/*	<AppFooter /> */}
 		</div>
 		)
 	}
