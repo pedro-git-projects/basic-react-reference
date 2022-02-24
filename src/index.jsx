@@ -11,6 +11,17 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "./index.css";
 
 class App extends Component {
+
+	constructor(props) {
+		super(props) // required
+		this.handlePostChange = this.handlePostChange.bind(this)
+		this.state = {posts: []}
+	}
+
+	handlePostChange(posts) {
+		this.setState({posts : posts})
+	}
+
 	render() {
 		// creating a JS object to store props
 		const myProps = {
@@ -21,9 +32,9 @@ class App extends Component {
 		return (			
 		/* we use className to create classes in JSX for class is a reserved JS word*/
 		<div className="app">			
-			{/*Passing properties trough spread operator*/}
-			<AppHeader {...myProps}/>
-			<AppContent />
+			{/*Lifting state trough this.state.posts and handlePostChange*/}
+			<AppHeader {...myProps} posts={this.state.posts} handlePostChange={this.handlePostChange}/>
+			<AppContent handlePostChange={this.handlePostChange}/>
 			<AppFooter />
 		</div>
 		)
